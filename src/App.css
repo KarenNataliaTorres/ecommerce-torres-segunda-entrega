@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+/*LOGO*/
+#logo{
+  color: beige;
+  font-size: 40px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 8px 5px 3.5px rgb(112, 107, 107);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#iconMueble{
+  padding: 0px 5px 5px 0px;
+  align-items:center;
+  margin-top: 0%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*NavBar*/
+.container-fluid{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  justify-items: center;
+  
+}
+.nav-link{
+  color: beige;
+  font-size: 15px;
+  
+}
+.nav-link:hover{
+  background-color: rgba(72, 72, 74, 0.414);
+  border-radius: 10%;
+  color: beige;
+}
+#navbarNavAltMarkup{
+  gap: 30px;
+}
+.navbar-nav{
+  justify-content: end;
+}
+
+/*ITEM LIST CONTAINER*/
+#ItemsListContent{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(182, 182, 120, 0.714);
+  padding: 20px;
+}
+/*BOTON CARRITO*/
+#button-cart{
+  border: none;
+  color: black;
+  font-size: 10px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  transition: all .3s;
+  align-items: flex-end;
+}
+#button-cart:hover {
+  cursor: pointer;
   color: white;
+  background-color: rgba(241, 241, 202, 0.773);
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*FOOTER*/
+#footer{
+  color: beige;
+  padding: 40px;
 }
