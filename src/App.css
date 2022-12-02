@@ -193,3 +193,75 @@ color: black;
     align-items: center;
     justify-content: space-between;
 }
+/*CART*/
+.Top{ /*div*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.TopButton{ /*button*/
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+ 
+  background-color: green;
+  color:white;
+}
+
+.TopText{ /*span*/
+  margin: 0px 10px;
+}
+.WrapperCart{ /*div*/
+  padding: 20px;
+}
+
+.TitleCart{ /*h1*/
+  font-weight: 300;
+  text-align: center;
+}
+
+.ContentCart{/*div*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Product{/*div*/
+  display: flex;
+  justify-content: space-between;
+}
+
+.ProductDetail{/*div*/
+  flex: 2;
+  display: flex;
+}
+
+.ImageCart{/*img*/
+  width: 200px;
+}
+
+.Details{/*div*/
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.PriceDetail{ /*div*/
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  
+.ProductPrice{ /*div*/
+  font-size: 30px;
+  font-weight: 200;
+}
+
+ 
+
+
+
