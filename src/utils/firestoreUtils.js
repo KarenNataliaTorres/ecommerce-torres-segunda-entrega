@@ -1,5 +1,6 @@
 import {collection,getDocs,query,where} from "firebase/firestore";
 import {db} from '../utils/firebaseConfig'
+import {doc,getDoc} from "firebase/firestore";
 
 export const firestoreFetch =async(idCat) =>{
     let q
@@ -14,4 +15,19 @@ export const firestoreFetch =async(idCat) =>{
         id:doc.id,
         ...doc.data()
     }))
+}
+
+export const firestoreFetchOne =async(idItem) =>{
+    const docRef = doc(db,"products",idItem);
+    const docSnap = await getDoc(docRef);
+
+    if(docSnap.exists()){
+        return{
+            id:idItem,
+            ...docSnap.data()
+        }
+    }else{
+   //doc.data() will be undifined in this case
+   console.log("No such document!");
+    }
 }

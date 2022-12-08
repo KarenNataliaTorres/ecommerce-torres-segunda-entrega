@@ -2,9 +2,51 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import FormatNumber from "../utils/FormatNumber";/* NUEVO */
+import { updateDoc, serverTimestamp, doc, collection, setDoc, increment } from 'firebase/firestore';
+import { async } from '@firebase/util';
+import {db} from '../utils/firebaseConfig'
 
 const Cart = () => {
     const test = useContext(CartContext);
+    const createOrder = ()=>{
+        let order={
+            buyer:{
+                name: 'Karen Torres',
+                email:'karen.torres@gmail.com',
+                phone:'094407353'
+                    
+            },
+            date: serverTimestamp(),
+            items: test.cartList.map(item=>({
+                id:item.idItem,
+                title:item.nameItem,
+                price:item.costItem,
+                qty:item.qtyItem
+
+            })),
+            total:test.calcTotal()
+        }
+        /* console.log(order) */
+        const createOrderInDB = async() =>{
+            const newOrderRef = doc(collection(db,'orders'))
+            await setDoc(newOrderRef,order);
+            return newOrderRef
+        }
+        createOrderInDB()
+        .then(response =>{
+            alert('Se creó tu orden de compra en la BD con ID=', response.id)
+            test.cartList.forEach(async(item) =>{
+                const itemRef = doc(db,"products",item.idItem);
+                await updateDoc(itemRef,
+                    {stock: increment(-item.qtyItem)//stock= stock -item.qtyItem
+                })
+
+            })
+            test.removeList()
+
+        }) 
+        .catch(err => console.log(err))
+    }
 
     return (
         <div className="WrapperCart">
@@ -65,7 +107,7 @@ const Cart = () => {
                                 <span className='SummaryItemText'>Total</span>
                                 <span className='SummaryItemPrice'><FormatNumber number={test.calcTotal()} /></span>
                             </div>
-                            <button className='Button'>CHECKOUT NOW</button>
+                            <button onClick={createOrder} className='Button'>CHECKOUT NOW</button>
                         </div>
                 }
             {/* </div> */}
