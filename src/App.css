@@ -123,13 +123,13 @@
 }
 
 /*ItemCount*/
-.ProductAmountContainer{
+.ProductAmountContainer{ /*div*/
   display: flex;
   align-items: center;
   margin: 20px;
 }
 
-.ProductAmount{
+.ProductAmount{ /*div*/
   font-size: 24px;
     margin: 5px;
 }
@@ -262,6 +262,70 @@ color: black;
 }
 
  
+/*NUEVOOO*/
+.Bottom{  /*DIV*/
+  display: flex;
+  justify-content: space-between;
+}
+  
+
+.Info{ /*DIV*/
+  flex: 3;
+}
+.Top{ /*div*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+  
+.TopButton{ /*button*/
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: solid;
+  background-color: "transparent";
+  color: yelow;
+}
+  
+.TopText{ /*span*/
+  margin: 0px 10px;
+}
+
+.ProductPrice{/*div*/
+  font-size: 30px;
+  font-weight: 200;
+}
+.Summary{/*div*/
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+}
+  
+.SummaryTitle{/*h1*/
+  font-weight: 200;
+}
+  
+.SummaryItem{/*div*/
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight:500;
+  font-size: 24px;
+}
+  
+/* .SummaryItemText{/*span*/
+/* const SummaryItemPrice = styled.span``;  */
+
+.Button{/*button*/
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}
 
 
 
