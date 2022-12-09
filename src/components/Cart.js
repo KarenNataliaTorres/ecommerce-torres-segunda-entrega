@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
-import FormatNumber from "../utils/FormatNumber";/* NUEVO */
+import FormatNumber from "../utils/FormatNumber";
 import { updateDoc, serverTimestamp, doc, collection, setDoc, increment } from 'firebase/firestore';
-import { async } from '@firebase/util';
 import {db} from '../utils/firebaseConfig'
 
 const Cart = () => {
@@ -26,7 +25,7 @@ const Cart = () => {
             })),
             total:test.calcTotal()
         }
-        /* console.log(order) */
+        
         const createOrderInDB = async() =>{
             const newOrderRef = doc(collection(db,'orders'))
             await setDoc(newOrderRef,order);
@@ -38,7 +37,7 @@ const Cart = () => {
             test.cartList.forEach(async(item) =>{
                 const itemRef = doc(db,"products",item.idItem);
                 await updateDoc(itemRef,
-                    {stock: increment(-item.qtyItem)//stock= stock -item.qtyItem
+                    {stock: increment(-item.qtyItem)
                 })
 
             })
@@ -52,90 +51,63 @@ const Cart = () => {
         <div className="WrapperCart">
             <h1 className='TitleCart'>MI CARRITO</h1>
             <div class="Top">
-                <Link to='/'><button className="TopButton">CONTINUE SHOPPING</button></Link>
+                <Link to='/'><button className="TopButton">CONTINUAR COMPRANDO </button></Link>
                 {
                     (test.cartList.length > 0)
-                    ? <button className="TopButton" type="filled" onClick={test.removeList}>DELETE ALL PRODUCTS</button>
+                    ? <button className="TopButton" type="filled" onClick={test.removeList}>ELIMINAR TODOS LOS PRODUCTOS</button>
                     : <span className="TopText">Tu carrito está vacío</span>
                 }
             </div>
-            <div className='ContentCart' >
-            {/* <div className='Bottom' >
-                <div className='Info' > */}
-                    {
-                        test.cartList.length > 0 &&
-                            test.cartList.map(item => 
-                            <div className='Product' key={item.idItem}>
-                            <div className='ProductDetail'>
-                                <img className='ImageCart' src={item.imgItem} />
-                                < div className='Details'>
-                                <span>
-                                    <b>Product:</b> {item.nameItem}
-                                </span>
-                                <button className='TopButton'  type="filled" onClick={() => test.deleteItem(item.idItem)}>DELETE</button>
-                                </div>
-                            </div>
-                            <div className='PriceDetail'>
-                                <div className='ProductAmountContainer'>
-                                   <div className='ProductAmount'>{item.qtyItem} item(s)</div>
-                                /
-                                   <div className='ProductAmount'>$ {item.costItem} each</div>
-                                </div>
-                                <div className='ProductPrice'>$ {test.calcTotalPerItem(item.idItem)} </div>
-                            </div>
-                            </div>
-                            )
-                    }
-                {/* </div> */}
+            <div className='ContentCart' >               
                 {
                     test.cartList.length > 0 &&
-                        <div className='Summary'>
-                            <h1 className='SummaryTitle'>ORDER SUMMARY</h1>
-                            <div className='SummaryItem'>
-                                <span className='SummaryItemText'>Subtotal</span>
-                                <span className='SummaryItemPrice'><FormatNumber number={test.calcSubTotal()} /></span>
-                            </div>
-                            <div className='SummaryItem'>
-                                <span className='SummaryItemText'>Taxes</span>
-                                <span className='SummaryItemPrice'><FormatNumber number={test.calcTaxes()} /></span>
-                            </div>
-                            <div className='SummaryItem'>
-                                <span className='SummaryItemText'>Taxes Discount</span>
-                                <span className='SummaryItemPrice'><FormatNumber number={-test.calcTaxes()} /></span>
-                            </div>
-                            <div className='SummaryItem' type="total">
-                                <span className='SummaryItemText'>Total</span>
-                                <span className='SummaryItemPrice'><FormatNumber number={test.calcTotal()} /></span>
-                            </div>
-                            <button onClick={createOrder} className='Button'>CHECKOUT NOW</button>
-                        </div>
-                }
-            {/* </div> */}
-                     {/* {
-                        test.cartList.length > 0 ? 
-                        test.cartList.map(item => 
-                        <div className='Product'  key={item.idItem}>
-                        <div className='ProductDetail' >
-                            <img className='ImageCart'  src={item.imgItem} />
-                            <div className='Details' >
+                    test.cartList.map(item => 
+                        <div className='Product' key={item.idItem}>
+                        <div className='ProductDetail'>
+                            <img className='ImageCart' src={item.imgItem} />
+                            < div className='Details'>
                             <span>
                                 <b>Product:</b> {item.nameItem}
                             </span>
                             <button className='TopButton'  type="filled" onClick={() => test.deleteItem(item.idItem)}>DELETE</button>
                             </div>
                         </div>
-                        <div className='PriceDetail' >
+                        <div className='PriceDetail'>
                             <div className='ProductAmountContainer'>
-                            <div className='ProductAmount'>{item.qtyItem} item(s)</div>
+                                <div className='ProductAmount'>{item.qtyItem} item(s)</div>
+                                /
+                                <div className='ProductAmount'>$ {item.costItem} each</div>
                             </div>
-                            <div className='ProductPrice' >$ {item.costItem} each</div>
+                            <div className='ProductPrice'>$ {test.calcTotalPerItem(item.idItem)} </div>
                         </div>
                         </div>
-                        )
-                        : <h1 className='TitleCart'></h1>
-                    } */}
- 
-
+                    )
+                }
+                
+                {
+                    test.cartList.length > 0 &&
+                        <div className='Summary'>
+                            <h1 className='SummaryTitle'>RESUMEN DEL PEDIDO</h1>
+                            <div className='SummaryItem'>
+                                <span >Subtotal</span>
+                                <span ><FormatNumber number={test.calcSubTotal()} /></span>
+                            </div>
+                            <div className='SummaryItem'>
+                                <span >IMPUESTO</span>
+                                <span ><FormatNumber number={test.calcTaxes()} /></span>
+                            </div>
+                            <div className='SummaryItem'>
+                                <span >DESCUENTOS</span>
+                                <span ><FormatNumber number={-test.calcTaxes()} /></span>
+                            </div>
+                            <div className='SummaryItem' type="total">
+                                <span >Total</span>
+                                <span ><FormatNumber number={test.calcTotal()} /></span>
+                            </div>
+                            <button onClick={createOrder} className='Button'>GENERAR ORDEN DE COMPRA</button>
+                        </div>
+                }
+            
             </div>
 
         </div>

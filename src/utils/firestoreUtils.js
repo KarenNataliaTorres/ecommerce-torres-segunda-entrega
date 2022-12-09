@@ -5,7 +5,6 @@ import {doc,getDoc} from "firebase/firestore";
 export const firestoreFetch =async(idCat) =>{
     let q
     if(idCat){
-        //filtro
         q=query(collection(db,"products"),where('categoryId',"==",parseInt(idCat)))
     }else{
     q=query(collection(db,"products"))
@@ -27,7 +26,7 @@ export const firestoreFetchOne =async(idItem) =>{
             ...docSnap.data()
         }
     }else{
-   //doc.data() will be undifined in this case
+   
    console.log("No such document!");
     }
 }

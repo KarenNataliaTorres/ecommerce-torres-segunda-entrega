@@ -123,13 +123,13 @@
 }
 
 /*ItemCount*/
-.ProductAmountContainer{ /*div*/
+.ProductAmountContainer{ 
   display: flex;
   align-items: center;
   margin: 20px;
 }
 
-.ProductAmount{ /*div*/
+.ProductAmount{ 
   font-size: 24px;
     margin: 5px;
 }
@@ -160,15 +160,15 @@ color: black;
   padding: 0px 50px;
 }
 
-.Title {/*h1*/
+.Title {
   font-weight: 200;
 }
 
-.Desc{/*p*/
+.Desc{
   margin: 20px 0px;
 }
     
-.Price{/*span*/
+.Price{
   font-weight: 100;
   font-size: 40px;
 }
@@ -194,61 +194,61 @@ color: black;
     justify-content: space-between;
 }
 /*CART*/
-.Top{ /*div*/
+.Top{ 
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
 }
-.TopButton{ /*button*/
-  padding: 10px;
+.TopButton{ 
+  padding: 5px;
   font-weight: 600;
   cursor: pointer;
- 
-  background-color: green;
+  background-color: rgba(108, 107, 107, 0.698);
+  border: solid 1px black ;
   color:white;
 }
 
-.TopText{ /*span*/
+.TopText{ 
   margin: 0px 10px;
 }
-.WrapperCart{ /*div*/
+.WrapperCart{ 
   padding: 20px;
 }
 
-.TitleCart{ /*h1*/
+.TitleCart{ 
   font-weight: 300;
   text-align: center;
 }
 
-.ContentCart{/*div*/
+.ContentCart{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.Product{/*div*/
+.Product{
   display: flex;
   justify-content: space-between;
 }
 
-.ProductDetail{/*div*/
+.ProductDetail{
   flex: 2;
   display: flex;
 }
 
-.ImageCart{/*img*/
+.ImageCart{
   width: 200px;
 }
 
-.Details{/*div*/
+.Details{
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.PriceDetail{ /*div*/
+.PriceDetail{ 
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -256,30 +256,29 @@ color: black;
   justify-content: center;
 }
   
-.ProductPrice{ /*div*/
+.ProductPrice{ 
   font-size: 30px;
   font-weight: 200;
 }
 
  
-/*NUEVOOO*/
-.Bottom{  /*DIV*/
+.Bottom{  
   display: flex;
   justify-content: space-between;
 }
   
 
-.Info{ /*DIV*/
+.Info{ 
   flex: 3;
 }
-.Top{ /*div*/
+.Top{ 
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
 }
   
-.TopButton{ /*button*/
+.TopButton{ 
   padding: 10px;
   font-weight: 600;
   cursor: pointer;
@@ -288,15 +287,15 @@ color: black;
   color: yelow;
 }
   
-.TopText{ /*span*/
+.TopText{ 
   margin: 0px 10px;
 }
 
-.ProductPrice{/*div*/
+.ProductPrice{
   font-size: 30px;
   font-weight: 200;
 }
-.Summary{/*div*/
+.Summary{
   flex: 1;
   border: 0.5px solid lightgray;
   border-radius: 10px;
@@ -304,22 +303,19 @@ color: black;
   height: 50vh;
 }
   
-.SummaryTitle{/*h1*/
+.SummaryTitle{
   font-weight: 200;
 }
   
-.SummaryItem{/*div*/
+.SummaryItem{
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
   font-weight:500;
   font-size: 24px;
 }
-  
-/* .SummaryItemText{/*span*/
-/* const SummaryItemPrice = styled.span``;  */
 
-.Button{/*button*/
+.Button{
   width: 100%;
   padding: 10px;
   background-color: black;

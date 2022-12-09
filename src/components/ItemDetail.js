@@ -29,11 +29,10 @@ const ItemDetail = ({ item }) => {
                         <span className='Price'>$ {item.cost}</span>
                         <p className='Desc'>{item.stock} unidades en stock</p>
                     </div>
-                    {/* <ItemCount stock={item.stock} initial={1} onAdd={onAdd} /> */}
                     {
                         itemCount === 0
                         ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-                        : <Link to='/cart' style={{textDecoration: "none"}}><button variant="contained" color="secondary">CheckOut</button></Link>
+                        : <Link to='/cart' style={{textDecoration: "none"}}><button variant="contained" color="secondary">IR AL CARRITO</button></Link>
                     }
                 </div>
             </div>

@@ -19,7 +19,6 @@ const CartContextProvider = ({ children }) => {
                 }
             ]);
         } else {
-            //al encontrarlo, entonces aumentamos el qty de ese producto
             found.qtyItem += qty;
         }
     }
@@ -32,30 +31,30 @@ const CartContextProvider = ({ children }) => {
         let result = cartList.filter(item => item.idItem != id);
         setCartList(result);
     }
-/*nuevas */
 
-const calcTotalPerItem = (idItem) => {
+
+    const calcTotalPerItem = (idItem) => {
     let index = cartList.map(item => item.idItem).indexOf(idItem);
     return cartList[index].costItem * cartList[index].qtyItem;
-}
+    }
 
-const calcSubTotal = () => {
+    const calcSubTotal = () => {
     let totalPerItem = cartList.map(item => calcTotalPerItem(item.idItem));
     return totalPerItem.reduce((previousValue, currentValue) => previousValue + currentValue);
-}
+    }
 
-const calcTaxes = () => {
+    const calcTaxes = () => {
     return calcSubTotal() * 0.18;
-}
+    }
 
-const calcTotal = () => {
+    const calcTotal = () => {
     return calcSubTotal();
-}
+    }
 
-const calcItemsQty = () => {
+    const calcItemsQty = () => {
     let qtys = cartList.map(item => item.qtyItem);
     return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
-}
+    }
 
     return (
         <CartContext.Provider value={{cartList, addToCart, removeList, deleteItem, calcTotalPerItem, 
