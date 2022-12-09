@@ -2,9 +2,9 @@
 
 El proyecto trata de una simulación de un ecommerce para un local de venta de muebles, en el mismo se despliegan los productos, se pueden añadir a un carrito y simular una orden de compras en un firebase.
 
-## github pages 📦
+## github pages deploy 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
+[sitio web](https://KarenNataliaTorres.github.io/ecommerce-torres-segunda-entrega)
 
 ## Construido con 🛠️
 
